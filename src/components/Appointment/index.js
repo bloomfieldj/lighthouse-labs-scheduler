@@ -21,6 +21,14 @@ export default function Appointment(props) {
 
   useVisualMode(mode)
 
+  const save = function (name, interviewer) {
+    const interview = {
+      student: name,
+      interviewer
+    };
+
+    transition(SHOW, true)
+  }
 
   return (
     <article className="appointment">
@@ -34,7 +42,7 @@ export default function Appointment(props) {
         onAdd={() => transition(CREATE)} />}
 
       {mode === CREATE && <Form
-        interviewers={props.interviewers} onCancel={back} />}
+        interviewers={props.interviewers} onCancel={back} onSave={save} />}
 
     </article>
   )
