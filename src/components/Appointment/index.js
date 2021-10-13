@@ -19,16 +19,32 @@ export default function Appointment(props) {
     props.interview ? SHOW : EMPTY
   );
 
-  useVisualMode(mode)
+  useVisualMode(mode);
 
-  const save = function (name, interviewer) {
+  const findIntereviewerByID = function (interviewerID) {
+    for (let interviewerKey in props.interviewers) {
+
+      if (props.interviewers[interviewerKey].id === interviewerID) {
+
+        return props.interviewers[interviewerKey];
+      }
+    }
+  }
+
+  const save = function (name, interviewerID) {
+
     const interview = {
       student: name,
-      interviewer
-    };
+      interviewer: findIntereviewerByID(interviewerID)
+    }
 
-    transition(SHOW, true)
+    props.bookInterview(props.id, interview)
+
+    console.log(props.interview);
+
+    // transition(SHOW, true);
   }
+
 
   return (
     <article className="appointment">
@@ -47,3 +63,5 @@ export default function Appointment(props) {
     </article>
   )
 }
+
+//can access form inputs from saveData but not props.onSave

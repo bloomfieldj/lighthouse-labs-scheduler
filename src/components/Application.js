@@ -9,9 +9,8 @@ import { getAppointmentsForDay, getInterviewersForDay, getInterview } from "./he
 
 export default function Application(props) {
   const [state, setState] = useState({
-    day: "Monday",
+    day: "",
     days: [],
-    // you may put the line below, but will have to remove/comment hardcoded appointments variable
     appointments: {},
     interviewers: {}
   });
@@ -23,7 +22,6 @@ export default function Application(props) {
 
 
   const bookInterview = function (id, interview) {
-    console.log(id, interview);
     const appointment = {
       ...state.appointments[id],
       interview: { ...interview }
@@ -34,11 +32,13 @@ export default function Application(props) {
       [id]: appointment
     };
 
-    setState(
-      {
-        ...state,
-        appointments
-      })
+    setState({
+      ...state,
+      appointments
+    });
+
+    // console.log(appointments[id]);
+    // console.log(state.appointments[id]);
   }
 
   const schedule = appointments.map((appointment) => {
