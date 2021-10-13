@@ -5,7 +5,7 @@ import Header from "components/Appointment/Header"
 import Empty from "components/Appointment/Empty"
 // import Confirm from "components/Appointment/Confirm"
 import Show from "components/Appointment/Show"
-// import Status from "components/Appointment/Status"
+import Status from "components/Appointment/Status"
 // import Error from "components/Appointment/Error"
 import Form from "components/Appointment/Form"
 import useVisualMode from "components/hooks/useVisualMode";
@@ -14,6 +14,7 @@ export default function Appointment(props) {
   const EMPTY = "EMPTY";
   const SHOW = "SHOW";
   const CREATE = "CREATE";
+  const SAVING = "SAVING"
 
   const { mode, transition, back } = useVisualMode(
     props.interview ? SHOW : EMPTY
@@ -21,28 +22,26 @@ export default function Appointment(props) {
 
   useVisualMode(mode);
 
-  const findIntereviewerByID = function (interviewerID) {
-    for (let interviewerKey in props.interviewers) {
+  // const findIntereviewerByID = function (interviewerID) {
+  //   for (let interviewerKey in props.interviewers) {
 
-      if (props.interviewers[interviewerKey].id === interviewerID) {
+  //     if (props.interviewers[interviewerKey].id === interviewerID) {
 
-        return props.interviewers[interviewerKey];
-      }
-    }
-  }
+  //       return props.interviewers[interviewerKey];
+  //     }
+  //   }
+  // }
 
   const save = function (name, interviewerID) {
 
     const interview = {
       student: name,
-      interviewer: findIntereviewerByID(interviewerID)
+      interviewer: interviewerID
     }
+    transition(SAVING);
 
     props.bookInterview(props.id, interview)
-
-    console.log(props.interview);
-
-    // transition(SHOW, true);
+      .then(() => transition(SHOW, true));
   }
 
 
@@ -59,6 +58,8 @@ export default function Appointment(props) {
 
       {mode === CREATE && <Form
         interviewers={props.interviewers} onCancel={back} onSave={save} />}
+
+      {mode === SAVING && <Status message="Saving" />}
 
     </article>
   )

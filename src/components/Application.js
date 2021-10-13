@@ -9,7 +9,7 @@ import { getAppointmentsForDay, getInterviewersForDay, getInterview } from "./he
 
 export default function Application(props) {
   const [state, setState] = useState({
-    day: "",
+    day: "Monday",
     days: [],
     appointments: {},
     interviewers: {}
@@ -32,13 +32,16 @@ export default function Application(props) {
       [id]: appointment
     };
 
-    setState({
-      ...state,
-      appointments
-    });
+    return axios.put(
+      `http://localhost:8001/api/appointments/${id}`,
+      { interview: interview })
+      .then(res => {
+        setState({ ...state, appointments })
+        return res
+      })
+      .catch(err => console.log(err))
 
-    // console.log(appointments[id]);
-    // console.log(state.appointments[id]);
+
   }
 
   const schedule = appointments.map((appointment) => {

@@ -12,13 +12,13 @@ export default function Form(props) {
     props.onCancel();
   };
 
-  const saveData = function () {
-    // console.log(props);
-    setName(name);
-    setInterviewer(interviewer);
-    // console.log(name);
-    // console.log(interviewer);
-  }
+  // const saveData = function () {
+  //   // console.log(props);
+  //   setName(name);
+  //   setInterviewer(interviewer);
+  //   // console.log(name);
+  //   // console.log(interviewer);
+  // }
 
 
 
