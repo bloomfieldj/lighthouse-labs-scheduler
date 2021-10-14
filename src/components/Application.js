@@ -17,7 +17,6 @@ export default function Application(props) {
     bookInterview,
     cancelInterview,
     editInterview
-
   } = useApplicationData();
 
 

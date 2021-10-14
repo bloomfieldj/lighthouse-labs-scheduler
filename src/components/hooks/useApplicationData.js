@@ -1,5 +1,6 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import axios from "axios";
+import { getAppointmentsForDay } from "components/helpers/selectors";
 
 export default function useApplicationData(props) {
   const [state, setState] = useState({
@@ -8,6 +9,51 @@ export default function useApplicationData(props) {
     appointments: {},
     interviewers: {}
   });
+
+
+
+  const convertDayNumberToName = function (day) {
+    for (let dayNumber in state.days) {
+      if (state.days[dayNumber].name === day) {
+        return day
+      }
+    }
+  }
+
+  const convertDayToNumber = function (day) {
+    for (let dayNumber in state.days) {
+      if (state.days[dayNumber].name === day) {
+        return dayNumber
+      }
+    }
+  }
+
+  const spotsLeft = function (day) {
+    const spotsRemaining = function (dayNumber) {
+      let spots = 0;
+      let todaysAppointmentIDs = [];
+      const day = convertDayNumberToName(dayNumber)
+      let appointments = getAppointmentsForDay(state, day)
+
+      for (let appointment in appointments) {
+        todaysAppointmentIDs.push(appointments[appointment].id);
+      }
+      for (let ID of todaysAppointmentIDs) {
+        if (state.appointments[ID].interview === null) {
+          spots++
+        }
+      }
+
+      return spots
+    }
+
+    let dayObject = state.days[convertDayToNumber(state.day)]
+
+    let dayObjectWithUpdatedSpots = { ...dayObject, spots: spotsRemaining(state.day) }
+
+    return { ...state.days, dayObjectWithUpdatedSpots }
+  }
+
 
   const bookInterview = function (id, interview) {
     const appointment = {
@@ -24,7 +70,8 @@ export default function useApplicationData(props) {
       `http://localhost:8001/api/appointments/${id}`,
       { interview: interview })
       .then(res => {
-        setState({ ...state, appointments })
+        const days = spotsLeft(state.day)
+        setState({ ...state, appointments, days })
         return res
       })
       .catch(err => console.log(err))
@@ -65,7 +112,8 @@ export default function useApplicationData(props) {
     return axios.delete(
       `http://localhost:8001/api/appointments/${id}`)
       .then(res => {
-        setState({ ...state, appointments })
+        const days = spotsLeft(state.day)
+        setState({ ...state, appointments, days })
         return res
       })
       .catch(error => error)
@@ -107,6 +155,9 @@ export default function useApplicationData(props) {
     })
 
   })
+
+
+
 
   return {
     state,
