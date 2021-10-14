@@ -60,7 +60,7 @@ export default function Application(props) {
         setState({ ...state, appointments })
         return res
       })
-      .catch(err => console.log(err))
+      .catch(error => error)
   }
 
   const cancelInterview = function (id) {
@@ -80,7 +80,7 @@ export default function Application(props) {
         setState({ ...state, appointments })
         return res
       })
-      .catch(err => console.log(err))
+      .catch(error => error)
   }
 
   const schedule = appointments.map((appointment) => {
