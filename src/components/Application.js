@@ -42,6 +42,27 @@ export default function Application(props) {
       .catch(err => console.log(err))
   }
 
+  const editInterview = function (id, interview) {
+    const appointment = {
+      ...state.appointments[id],
+      interview: { ...interview }
+    };
+
+    const appointments = {
+      ...state.appointments,
+      [id]: appointment
+    };
+
+    return axios.patch(
+      `http://localhost:8001/api/appointments/${id}`,
+      { interview: interview })
+      .then(res => {
+        setState({ ...state, appointments })
+        return res
+      })
+      .catch(err => console.log(err))
+  }
+
   const cancelInterview = function (id) {
     const appointment = {
       ...state.appointments[id],
@@ -74,6 +95,7 @@ export default function Application(props) {
         interview={interview}
         interviewers={interviewers}
         bookInterview={bookInterview}
+        editInterview={editInterview}
         cancelInterview={cancelInterview}
       />
     );
