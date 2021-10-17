@@ -32,7 +32,7 @@ Default view
 
 Book interview
 
-![Book interview](https://github.com/bloomfieldj/lighthouse-labs-scheduler/blob/master/docs/cancel.jpg?raw=true)
+![Book interview](https://github.com/bloomfieldj/lighthouse-labs-scheduler/blob/master/docs/book.jpg?raw=true)
 
 Cancel interview
 
