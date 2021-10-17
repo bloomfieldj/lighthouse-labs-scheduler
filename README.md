@@ -30,10 +30,10 @@ Default view
 
 ![Default View](https://github.com/bloomfieldj/lighthouse-labs-scheduler/blob/master/docs/book.jpg?raw=true)
 
-Default view
+Book interview
 
 ![Book interview](https://github.com/bloomfieldj/lighthouse-labs-scheduler/blob/master/docs/cancel.jpg?raw=true)
 
-Default view
+Cancel interview
 
 ![Cancel interview](https://github.com/bloomfieldj/lighthouse-labs-scheduler/blob/master/docs/cancel.jpg?raw=true)
