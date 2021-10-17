@@ -28,7 +28,7 @@ npm run storybook
 
 Default view
 
-![Default View](https://github.com/bloomfieldj/lighthouse-labs-scheduler/blob/master/docs/book.jpg?raw=true)
+![Default View](https://github.com/bloomfieldj/lighthouse-labs-scheduler/blob/master/docs/default.jpg?raw=true)
 
 Book interview
 
