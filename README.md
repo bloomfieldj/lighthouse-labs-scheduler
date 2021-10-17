@@ -32,8 +32,8 @@ Default view
 
 Default view
 
-![Book interview](https://github.com/bloomfieldj/lighthouse-labs-scheduler/blob/master/docs/book.png?raw=true)
+![Book interview](https://github.com/bloomfieldj/lighthouse-labs-scheduler/blob/master/docs/cancel.jpg?raw=true)
 
 Default view
 
-![Cancel interview](https://github.com/bloomfieldj/lighthouse-labs-scheduler/blob/master/docs/cancel.png?raw=true)
+![Cancel interview](https://github.com/bloomfieldj/lighthouse-labs-scheduler/blob/master/docs/cancel.jpg?raw=true)
