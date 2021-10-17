@@ -1,6 +1,6 @@
 # Interview Scheduler
 
-A single page student interview scheduling app built with React, Axios, Postgres, Storybook, Jest, Webpack, Babel and Cypress 
+A single page student interview scheduling app built with React, Axios, Postgres, Storybook, Jest, Webpack, Babel and Cypress.
 
 ## Setup
 
@@ -28,12 +28,12 @@ npm run storybook
 
 Default view
 
-![Default View](https://github.com/bloomfieldj/scheduler/blob/master/docs/default.png?raw=true)
+![Default View](https://github.com/bloomfieldj/lighthouse-labs-scheduler/blob/master/docs/book.jpg?raw=true)
 
 Default view
 
-![Book interview](https://github.com/bloomfieldj/scheduler/blob/master/docs/book.png?raw=true)
+![Book interview](https://github.com/bloomfieldj/lighthouse-labs-scheduler/blob/master/docs/book.png?raw=true)
 
 Default view
 
-![Cancel interview](https://github.com/bloomfieldj/scheduler/blob/master/docs/cancel.png?raw=true)
+![Cancel interview](https://github.com/bloomfieldj/lighthouse-labs-scheduler/blob/master/docs/cancel.png?raw=true)
