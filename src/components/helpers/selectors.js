@@ -1,6 +1,6 @@
 export function getAppointmentsForDay(state, day) {
   if (!day) {
-    return []
+    return [];
   }
 
   if (!state.days[0]) {
@@ -24,7 +24,7 @@ export function getAppointmentsForDay(state, day) {
 
 export function getInterviewersForDay(state, day) {
   if (!day) {
-    return []
+    return [];
   }
 
   if (!state.days[0]) {

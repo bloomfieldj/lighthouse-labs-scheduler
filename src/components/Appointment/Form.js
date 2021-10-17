@@ -22,16 +22,6 @@ export default function Form(props) {
     props.onCancel();
   };
 
-  // const saveData = function () {
-  //   // console.log(props);
-  //   setName(name);
-  //   setInterviewer(interviewer);
-  //   // console.log(name);
-  //   // console.log(interviewer);
-  // }
-
-
-
   return (
     <main className="appointment__card appointment__card--create">
       <section className="appointment__card-left">
@@ -56,5 +46,5 @@ export default function Form(props) {
         </section>
       </section>
     </main>
-  )
-}
+  );
+};

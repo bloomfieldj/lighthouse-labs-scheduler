@@ -1,13 +1,13 @@
 import React from "react";
-import "./styles.scss"
+import "./styles.scss";
 
-import Header from "components/Appointment/Header"
-import Empty from "components/Appointment/Empty"
-import Confirm from "components/Appointment/Confirm"
-import Show from "components/Appointment/Show"
-import Status from "components/Appointment/Status"
-import Error from "components/Appointment/Error"
-import Form from "components/Appointment/Form"
+import Header from "components/Appointment/Header";
+import Empty from "components/Appointment/Empty";
+import Confirm from "components/Appointment/Confirm";
+import Show from "components/Appointment/Show";
+import Status from "components/Appointment/Status";
+import Error from "components/Appointment/Error";
+import Form from "components/Appointment/Form";
 import useVisualMode from "components/hooks/useVisualMode";
 
 export default function Appointment(props) {
@@ -17,9 +17,9 @@ export default function Appointment(props) {
   const SAVING = "SAVING";
   const DELETING = "DELETING";
   const CONFIRM = "CONFIRM";
-  const EDIT = "EDIT"
-  const ERROR_DELETE = "ERROR_DELETE"
-  const ERROR_SAVE = "ERROR_SAVE"
+  const EDIT = "EDIT";
+  const ERROR_DELETE = "ERROR_DELETE";
+  const ERROR_SAVE = "ERROR_SAVE";
 
   const { mode, transition, back } = useVisualMode(
     props.interview ? SHOW : EMPTY
@@ -27,28 +27,19 @@ export default function Appointment(props) {
 
   useVisualMode(mode);
 
-  // const findIntereviewerByID = function (interviewerID) {
-  //   for (let interviewerKey in props.interviewers) {
-
-  //     if (props.interviewers[interviewerKey].id === interviewerID) {
-
-  //       return props.interviewers[interviewerKey];
-  //     }
-  //   }
-  // }
-
   const save = function (name, interviewerID) {
 
     const interview = {
       student: name,
       interviewer: interviewerID
-    }
+    };
+
     transition(SAVING);
 
     props.bookInterview(props.id, interview)
       .then(() => transition(SHOW))
       .catch(error => transition(ERROR_SAVE, true));
-  }
+  };
 
   const confirmDeletion = function () {
 
@@ -63,10 +54,10 @@ export default function Appointment(props) {
     props.cancelInterview(props.id)
       .then(() => transition(EMPTY))
       .catch(error => transition(ERROR_DELETE, true));
-  }
+  };
 
   const edit = function () {
-    transition(EDIT)
+    transition(EDIT);
   }
 
   const show = function () {
@@ -134,6 +125,6 @@ export default function Appointment(props) {
       }
 
     </article>
-  )
-}
+  );
+};
 
