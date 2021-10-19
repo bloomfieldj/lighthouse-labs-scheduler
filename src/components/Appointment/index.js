@@ -28,17 +28,19 @@ export default function Appointment(props) {
   useVisualMode(mode);
 
   const save = function (name, interviewerID) {
+    if (name && interviewerID) {
+      transition(SAVING);
 
-    const interview = {
-      student: name,
-      interviewer: interviewerID
-    };
+      const interview = {
+        student: name,
+        interviewer: interviewerID
+      };
 
-    transition(SAVING);
+      props.bookInterview(props.id, interview)
+        .then(() => transition(SHOW))
+        .catch(() => transition(ERROR_SAVE, true));
+    }
 
-    props.bookInterview(props.id, interview)
-      .then(() => transition(SHOW))
-      .catch(error => transition(ERROR_SAVE, true));
   };
 
   const confirmDeletion = function () {
