@@ -23,7 +23,7 @@ export default function useApplicationData(props) {
     };
 
     return axios.put(
-      `http://localhost:8001/api/appointments/${id}`,
+      `appointments/${id}`,
       { interview: interview })
       .then(res => {
         setState({
@@ -47,7 +47,7 @@ export default function useApplicationData(props) {
     };
 
     return axios.patch(
-      `http://localhost:8001/api/appointments/${id}`,
+      `/appointments/${id}`,
       { interview: interview })
       .then(res => {
         setState({ ...state, appointments });
@@ -68,7 +68,7 @@ export default function useApplicationData(props) {
     };
 
     return axios.delete(
-      `http://localhost:8001/api/appointments/${id}`)
+      `/appointments/${id}`)
       .then(res => {
         setState({
           ...state, appointments
