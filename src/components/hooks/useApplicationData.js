@@ -32,7 +32,6 @@ export default function useApplicationData(props) {
         });
         return res;
       })
-      .catch(err => console.log(err));
   }
 
   const editInterview = function (id, interview) {
@@ -53,7 +52,6 @@ export default function useApplicationData(props) {
         setState({ ...state, appointments });
         return res;
       })
-      .catch(error => error);
   };
 
   const cancelInterview = function (id) {
@@ -75,7 +73,6 @@ export default function useApplicationData(props) {
         });
         return res;
       })
-      .catch(error => error);
   };
 
 

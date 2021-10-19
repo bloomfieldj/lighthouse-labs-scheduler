@@ -29,6 +29,7 @@ export default function Appointment(props) {
 
   const save = function (name, interviewerID) {
     if (name && interviewerID) {
+
       transition(SAVING);
 
       const interview = {
@@ -55,7 +56,7 @@ export default function Appointment(props) {
 
     props.cancelInterview(props.id)
       .then(() => transition(EMPTY))
-      .catch(error => transition(ERROR_DELETE, true));
+      .catch(error => transition(error => ERROR_DELETE, true));
   };
 
   const edit = function () {
