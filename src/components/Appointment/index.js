@@ -73,7 +73,7 @@ export default function Appointment(props) {
     <article className="appointment">
       <Header id={props.id} time={props.time} />
 
-      {mode === SHOW &&
+      {mode === SHOW && props.interview.student &&
         <Show
           student={props.interview.student}
           interviewer={props.interview.interviewer.name}
